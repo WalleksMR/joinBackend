@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  database_mysql:
+    image: mysql
+    container_name: database_teamsoft
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_USER=walleks
+      - MYSQL_PASSWORD=admin
+      - MYSQL_DATABASE=joinbackend
+    volumes:
+      - mysql:/data/mysql
+
+  app:
+    build: .
+    container_name: joinBackend
+    restart: always
+    ports:
+      - 3232:3232
+    volumes:
+      - .:/usr/app/teamsoft
+    links:
+      - database_mysql
+    depends_on:
+      - database_mysql
+
+volumes:
+  mysql:
+    driver: local
