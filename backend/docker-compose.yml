@@ -21,6 +21,7 @@ services:
     restart: always
     ports:
       - 3232:3232
+      - 9229:9229
     volumes:
       - .:/usr/app/teamsoft
     links:
