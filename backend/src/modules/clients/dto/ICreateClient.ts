@@ -1,7 +1,8 @@
 export interface ICreateClient {
   id?: string;
+  address_id?: string;
   name: string;
   cnpj: string;
-  corporateName: string;
-  contact: number;
+  corporate_name: string;
+  contact: string;
 }
