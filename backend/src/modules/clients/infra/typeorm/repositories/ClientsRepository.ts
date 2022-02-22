@@ -26,7 +26,7 @@ export class ClientsRepository implements IClientsRepository {
     return client;
   }
   async listAll(): Promise<Client[]> {
-    const clientList = await this.repository.find();
+    const clientList = await this.repository.find({ relations: ['address'] });
     return clientList;
   }
   async delete(id: string): Promise<void> {
