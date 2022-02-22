@@ -1,10 +1,22 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import { Address } from '@modules/address/infra/typeorm/entities/Address';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  PrimaryColumn,
+} from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 
 @Entity('clients')
 export class Client {
   @PrimaryColumn()
   id: string;
+
+  @JoinColumn()
+  @OneToMany(() => Address, address => address.client)
+  address: Address[];
 
   @Column()
   name: string;
@@ -13,13 +25,13 @@ export class Client {
   cnpj: string;
 
   @Column()
-  corporateName: string;
+  corporate_name: string;
 
   @Column()
   contact: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  created_at: Date;
 
   constructor() {
     if (!this.id) this.id = uuidV4();
