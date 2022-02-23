@@ -5,4 +5,10 @@ export default {
     corporate_name: 'Razao social',
     contact: '5594991008899',
   },
+  UnderfinedClient: {
+    name: '',
+    cnpj: '',
+    corporate_name: '',
+    contact: '',
+  },
 };
