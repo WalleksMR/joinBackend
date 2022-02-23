@@ -25,4 +25,13 @@ describe('Create Client Controller', () => {
     expect(client.statusCode).toBe(201);
     expect(client.body.cnpj).toBe(MokeTest.CreateClient.cnpj);
   });
+
+  it('should not be able create a new client if cnpj already exists', async () => {
+    await request(app).post('/clients').send(MokeTest.CreateClient);
+    const client = await request(app)
+      .post('/clients')
+      .send(MokeTest.CreateClient);
+
+    expect(client.statusCode).toBe(404);
+  });
 });
