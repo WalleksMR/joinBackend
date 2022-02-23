@@ -28,7 +28,17 @@ export default {
     latitude: '22222',
     longitude: '333333',
   },
-
+  UpdateAddress: {
+    street: 'Rua Sao Francisco',
+    number: '2222',
+    complement: 'Apartamento',
+    neighborhood: 'Bairro Mineiro',
+    city: 'Parauapebas',
+    state: 'PA',
+    zip_code: '68390000',
+    latitude: '222222',
+    longitude: '333333',
+  },
   UndefinedAddress: {
     street: '',
     number: '',
