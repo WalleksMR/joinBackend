@@ -15,6 +15,19 @@ services:
     volumes:
       - mysql:/data/mysql
 
+  db_mysql_test:
+    image: mysql
+    container_name: db_teamsoft_test
+    ports:
+      - 3305:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_USER=walleks
+      - MYSQL_PASSWORD=admin
+      - MYSQL_DATABASE=joinbackend_test
+    volumes:
+      - mysql:/data/mysql/test
+
   app:
     build: .
     container_name: joinBackend
