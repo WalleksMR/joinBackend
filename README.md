@@ -103,6 +103,218 @@ $ yarn typeorm migration:run
 $ yarn test
 ```
 
+---
+
+<h1 align="center"> REST API - Rotas</h1>
+
+## Get list of Clients
+
+`GET /clients/`
+
+### Response
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+
+    [
+      {
+        id: string;
+        name: string;
+        cnpj: string;
+        corporate_name: string;
+        contact: string;
+        address: [
+          {
+            id: string;
+            client_id?: string;
+            street: string;
+            number: string;
+            complement: string;
+            neighborhood: string;
+            city: string;
+            state: string;
+            zip_code: string;
+            latitude: string;
+            longitude: string;
+            }
+          }
+        ]
+      }
+    ]
+
+## Create a new Client
+
+### Request
+
+`POST /clients/`
+
+    Body{
+        name: 'New Client',
+        cnpj: '80212855000115',
+        corporate_name: 'Razao social',
+        contact: '5594991008899',
+      }
+
+### Response
+
+    HTTP/1.1 201 Created
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
+
+    [
+      {
+        id: 658c157e-25d3-489c-bc7b-9710fbee2119
+        name: 'New Client',
+        cnpj: '80212855000115',
+        corporate_name: 'Razao social',
+        contact: '5594991008899',
+      }
+    ]
+
+## Update a Client
+
+### Request
+
+`PATCH /clients/:id`
+
+    Params: 658c157e-25d3-489c-bc7b-9710fbee2119
+
+    Body{
+        name: 'New Client 2',
+        cnpj: '80212855000115',
+        corporate_name: 'Razao social update',
+        contact: '5594991008899',
+      }
+
+### Response
+
+    HTTP/1.1 201 Updated
+    Status: 201 Updated
+    Connection: close
+    Content-Type: application/json
+
+    [
+      {
+        id: 658c157e-25d3-489c-bc7b-9710fbee2119
+        name: 'New Client 2',
+        cnpj: '80212855000115',
+        corporate_name: 'Razao social update',
+        contact: '5594991008899',
+      }
+    ]
+
+#
+
+## Get list of Address
+
+`GET /address/`
+
+### Response
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+
+    [
+      {
+        id: string;
+        client_id?: string;
+        street: string;
+        number: string;
+        complement: string;
+        neighborhood: string;
+        city: string;
+        state: string;
+        zip_code: string;
+        latitude: string;
+        longitude: string;
+      }
+    ]
+
+`POST /address/:client_id`
+
+### Request
+
+    Params: 658c157e-25d3-489c-bc7b-9710fbee2119
+
+    Body{
+        street: 'Rua Rex',
+        number: '1234',
+        complement: 'Casa',
+        neighborhood: 'Bairro Local',
+        city: 'Ourilândia',
+        state: 'PA',
+        zip_code: '68390000',
+        latitude: '22222',
+        longitude: '333333'
+      }
+
+### Response
+
+    HTTP/1.1 201 Created
+    Status: 201 Created
+    Connection: close
+    Content-Type: application/json
+
+    [
+      {
+        id: 658c157e-25d3-489c-bc7b-9710fbee2119
+        client_id: 158c227e-55d3-489c-bc7b-9710fbee29bc
+        street: 'Rua Rex',
+        number: '1234',
+        complement: 'Casa',
+        neighborhood: 'Bairro Local',
+        city: 'Ourilândia',
+        state: 'PA',
+        zip_code: '68390000',
+        latitude: '22222',
+        longitude: '333333'
+      }
+    ]
+
+`PATCH /address/update/:id`
+
+    Params: 658c157e-25d3-489c-bc7b-9710fbee2119
+
+    Body{
+        street: 'Rua Sao Francisco',
+        number: '2222',
+        complement: 'Apartamento',
+        neighborhood: 'Bairro Mineiro',
+        city: 'Parauapebas',
+        state: 'PA',
+        zip_code: '68390000',
+        latitude: '222222',
+        longitude: '333333'
+      }
+
+### Response
+
+    HTTP/1.1 201 Updated
+    Status: 201 Updated
+    Connection: close
+    Content-Type: application/json
+
+    [
+      {
+        id: 658c157e-25d3-489c-bc7b-9710fbee2119
+        client_id: 158c227e-55d3-489c-bc7b-9710fbee29bc
+        street: 'Rua Sao Francisco',
+        number: '2222',
+        complement: 'Apartamento',
+        neighborhood: 'Bairro Mineiro',
+        city: 'Parauapebas',
+        state: 'PA',
+        zip_code: '68390000',
+        latitude: '222222',
+        longitude: '333333'
+      }
+    ]
+
 ## 📝 Licença
 
 Este projeto está licenciado sob a licença MIT - Veja [Licença](LICENSE.md) para mais detalhes.
