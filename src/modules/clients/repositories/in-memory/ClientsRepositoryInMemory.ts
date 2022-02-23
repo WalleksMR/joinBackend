@@ -1,5 +1,6 @@
-import { ICreateClient } from '../../dto/ICreateClient';
-import { Client } from '../../infra/typeorm/entities/Client';
+import { ICreateClient } from '@modules/clients/dto/ICreateClient';
+import { Client } from '@modules/clients/infra/typeorm/entities/Client';
+
 import { IClientsRepository } from '../IClientsRepository';
 
 export class ClientsRepositoryInMemory implements IClientsRepository {

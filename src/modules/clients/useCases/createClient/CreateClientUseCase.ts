@@ -1,7 +1,7 @@
+import DataMask from '@config/DataMask';
 import { ICreateClient } from '@modules/clients/dto/ICreateClient';
 import { Client } from '@modules/clients/infra/typeorm/entities/Client';
 import { IClientsRepository } from '@modules/clients/repositories/IClientsRepository';
-import DataMask from 'config/DataMask';
 import { inject, injectable } from 'tsyringe';
 import * as Yup from 'yup';
 
