@@ -30,7 +30,7 @@ describe('Use Case Client', () => {
 
   it('should not be able create a new client if anywhere input be undefined', () => {
     expect(async () => {
-      await createClientUseCase.execute(MokeTest.UnderfinedClient);
+      await createClientUseCase.execute(MokeTest.UndefinedClient);
     }).rejects.toBeInstanceOf(AppError);
   });
 });
