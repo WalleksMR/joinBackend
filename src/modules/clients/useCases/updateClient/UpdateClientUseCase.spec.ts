@@ -1,6 +1,8 @@
 import MokeTest from '@config/MokeTest';
 import { ClientsRepositoryInMemory } from '@modules/clients/repositories/in-memory/ClientsRepositoryInMemory';
 
+import { AppError } from '@shared/errors/AppError';
+
 import { UpdateClientUseCase } from './UpdateClientUseCase';
 
 describe('Use Case Client', () => {
@@ -26,5 +28,20 @@ describe('Use Case Client', () => {
 
     expect(clientUpdate.id).toBe(client.id);
     expect(clientUpdate.cnpj).toBe(client.cnpj);
+  });
+
+  it('should not be able update a client if anywhere input be undefined', () => {
+    expect(async () => {
+      const client = await clientsRepositoryInMemory.create(
+        MokeTest.CreateClient,
+      );
+      await updateClientUseCase.execute({
+        id: client.id,
+        name: '',
+        cnpj: '',
+        corporate_name: '',
+        contact: '',
+      });
+    }).rejects.toBeInstanceOf(AppError);
   });
 });
