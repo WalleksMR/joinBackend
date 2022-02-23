@@ -5,7 +5,7 @@ import { AppError } from '@shared/errors/AppError';
 
 import { CreateClientUseCase } from './CreateClientUseCase';
 
-describe('Use Case Client', () => {
+describe('Create Client Use Case', () => {
   let clientsRepositoryInMemory: ClientsRepositoryInMemory;
   let createClientUseCase: CreateClientUseCase;
 
