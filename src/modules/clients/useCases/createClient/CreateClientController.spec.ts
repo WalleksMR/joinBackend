@@ -32,6 +32,6 @@ describe('Create Client Controller', () => {
       .post('/clients')
       .send(MokeTest.CreateClient);
 
-    expect(client.statusCode).toBe(404);
+    expect(client.statusCode).toBe(400);
   });
 });
