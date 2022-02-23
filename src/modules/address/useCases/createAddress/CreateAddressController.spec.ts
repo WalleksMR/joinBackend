@@ -23,7 +23,7 @@ describe('Create Address Controller', () => {
       .send(MokeTest.CreateClient);
 
     const address = await request(app)
-      .post(`/address${client.body.id}`)
+      .post(`/address/${client.body.id}`)
       .send(MokeTest.CreateAddress);
 
     expect(address.statusCode).toBe(201);
