@@ -16,6 +16,7 @@ export class ClientsRepositoryInMemory implements IClientsRepository {
     if (id) {
       const client = this.clients.find(client => client.id === id);
       Object.assign(client, {
+        id,
         name,
         cnpj,
         corporate_name,
