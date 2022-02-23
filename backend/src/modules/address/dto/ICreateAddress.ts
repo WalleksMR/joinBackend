@@ -1,6 +1,6 @@
 export interface ICreateAddress {
   id?: string;
-  client_id: string;
+  client_id?: string;
   street: string;
   number: string;
   complement: string;
