@@ -11,4 +11,10 @@ export default {
     corporate_name: '',
     contact: '',
   },
+  UpdateClient: {
+    name: 'New Client 2',
+    cnpj: '80212855000115',
+    corporate_name: 'Razao social update',
+    contact: '5594991008899',
+  },
 };
