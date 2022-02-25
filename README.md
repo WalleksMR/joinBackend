@@ -83,10 +83,10 @@ $ yarn
 # Faz uma copia de '.env-example' para '.env'
 # as configuração já estão aplicadas.
 
-$ cp .env.example .env
+$ cp .env-example .env
 
-# Cria a instância do MySQL usando o Docker Compose
-# Ire criar o bando de dados de produção e de teste
+# Ira cria a instância do MySQL usando o Docker Compose
+# junto com o banco de dados de teste
 # e a imagem da aplicação rodando na porta 3232.
 $ docker-compose up -d
 
